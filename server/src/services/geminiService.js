@@ -87,8 +87,42 @@ export const generateJSON = async (prompt, systemInstruction = '') => {
   }
 };
 
+/**
+ * Generate embeddings for a batch of texts using text-embedding-004 in a single API call
+ * @param {string[]} texts
+ * @returns {Promise<number[][]>} Array of 768-dimensional float arrays
+ */
+export const generateEmbeddingsBatch = async (texts) => {
+  if (!genAI) {
+    throw new Error('Gemini API key is not configured (GEMINI_API_KEY).');
+  }
+  if (!texts || texts.length === 0) {
+    return [];
+  }
+
+  try {
+    const model = genAI.getGenerativeModel({ model: 'text-embedding-004' });
+    const result = await model.batchEmbedContents({
+      requests: texts.map((t) => ({
+        model: 'models/text-embedding-004',
+        content: { parts: [{ text: t }] }
+      }))
+    });
+
+    if (!result?.embeddings) {
+      throw new Error('No embeddings returned from Gemini API batch request');
+    }
+
+    return result.embeddings.map((e) => e.values);
+  } catch (error) {
+    console.error('Error generating batch embeddings with Gemini:', error.message);
+    throw error;
+  }
+};
+
 export default {
   generateEmbedding,
+  generateEmbeddingsBatch,
   generateCompletion,
   generateJSON
 };

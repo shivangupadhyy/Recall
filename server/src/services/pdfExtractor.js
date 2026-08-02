@@ -17,7 +17,7 @@ export const extractTextWithPageMarkers = async (filePath) => {
     pagerender: function (pageData) {
       return pageData.getTextContent().then(function (textContent) {
         const text = textContent.items.map((item) => item.str).join(' ');
-        const pageNum = pageData.pageIndex + 1;
+        const pageNum = pageData.pageNumber;
         return `\n[[PAGE_${pageNum}]]\n` + text;
       });
     },

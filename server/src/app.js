@@ -83,11 +83,20 @@ app.use((req, res, next) => {
 // Global Error Handler Middleware
 app.use((err, req, res, next) => {
   console.error('Unhandled Error:', err.stack);
-  res.status(err.status || 500).json({
-    error: {
-      message: err.message || 'Internal Server Error',
-      status: err.status || 500
+  
+  let status = err.status || 500;
+  let message = err.message || 'Internal Server Error';
+  
+  // Handle Multer file size limits and other upload errors gracefully
+  if (err.name === 'MulterError') {
+    status = 400;
+    if (err.code === 'LIMIT_FILE_SIZE') {
+      message = 'File is too large. Maximum allowed size is 10MB.';
     }
+  }
+  
+  res.status(status).json({
+    error: message
   });
 });
 

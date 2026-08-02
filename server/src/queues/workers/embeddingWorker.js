@@ -48,22 +48,32 @@ const worker = new Worker(
         throw new Error('No readable text chunks extracted from PDF.');
       }
 
-      // 4. Generate embeddings and save chunks to database
-      for (const chunk of textChunks) {
-        console.log(`[Worker] Generating embedding for chunk ${chunk.chunkIndex + 1}/${textChunks.length} (Page ${chunk.pageNumber})`);
-        
-        // Generate embedding vector using Gemini
-        const embedding = await geminiService.generateEmbedding(chunk.text);
+      // Delete any existing chunks for this document to make the worker idempotent on retries
+      await db.delete(chunks).where(eq(chunks.documentId, doc.id));
 
-        // Insert chunk into Postgres using Drizzle
-        await db.insert(chunks).values({
-          documentId: doc.id,
-          userId: doc.userId,
-          text: chunk.text,
-          embedding,
-          pageNumber: chunk.pageNumber,
-          chunkIndex: chunk.chunkIndex
+      // 4. Generate embeddings in batches and save chunks to database
+      const BATCH_SIZE = 30;
+      for (let i = 0; i < textChunks.length; i += BATCH_SIZE) {
+        const batch = textChunks.slice(i, i + BATCH_SIZE);
+        console.log(`[Worker] Generating embeddings for batch ${Math.floor(i / BATCH_SIZE) + 1}/${Math.ceil(textChunks.length / BATCH_SIZE)} (chunks ${i + 1}-${Math.min(i + BATCH_SIZE, textChunks.length)})`);
+        
+        const textsToEmbed = batch.map(chunk => chunk.text);
+        const embeddings = await geminiService.generateEmbeddingsBatch(textsToEmbed);
+
+        // Insert chunks with their embeddings into Postgres using Drizzle
+        const insertPromises = batch.map((chunk, index) => {
+          return db.insert(chunks).values({
+            documentId: doc.id,
+            userId: doc.userId,
+            text: chunk.text,
+            embedding: embeddings[index],
+            pageNumber: chunk.pageNumber,
+            chunkIndex: chunk.chunkIndex
+          });
         });
+
+        // Run insertions in parallel for this batch
+        await Promise.all(insertPromises);
       }
 
       // 5. Update document status to ready
