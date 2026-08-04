@@ -4,6 +4,7 @@ import { AuthProvider, useAuth } from './context/AuthContext';
 import AuthPage from './pages/AuthPage';
 import Dashboard from './pages/Dashboard';
 import SubjectView from './pages/SubjectView';
+import ChatPage from './pages/ChatPage';
 import { Loader2 } from 'lucide-react';
 
 // Protected Route Guard
@@ -117,7 +118,7 @@ function App() {
             path="/chat/:docId" 
             element={
               <ProtectedRoute>
-                <FeatureSkeleton title="RAG Doubt-Solving Chat" phase="Phase 3" />
+                <ChatPage />
               </ProtectedRoute>
             } 
           />

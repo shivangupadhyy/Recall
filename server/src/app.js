@@ -9,8 +9,11 @@ import { sql } from 'drizzle-orm';
 import connectDB, { db } from './config/db.js';
 import redisClient, { connectRedis } from './config/redis.js';
 import './queues/workers/embeddingWorker.js';
+import './queues/workers/quizWorker.js';
 import authRoutes from './routes/auth.routes.js';
 import documentRoutes from './routes/document.routes.js';
+import chatRoutes from './routes/chat.routes.js';
+import quizRoutes from './routes/quiz.routes.js';
 
 // Resolve ES module paths
 const __filename = fileURLToPath(import.meta.url);
@@ -43,6 +46,8 @@ connectRedis();
 // API Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/documents', documentRoutes);
+app.use('/api/chat', chatRoutes);
+app.use('/api/quizzes', quizRoutes);
 
 // Health check endpoint
 app.get('/api/health', async (req, res) => {

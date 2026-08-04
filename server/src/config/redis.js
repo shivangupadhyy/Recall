@@ -25,9 +25,16 @@ redisClient.on('connect', () => {
 });
 
 // Connection configuration string/object for BullMQ workers and queues
+const isSecure = redisUrl.startsWith('rediss://');
 export const bullMQConnection = {
   connection: {
-    url: redisUrl
+    url: redisUrl,
+    maxRetriesPerRequest: null,
+    ...(isSecure ? {
+      tls: {
+        rejectUnauthorized: false
+      }
+    } : {})
   }
 };
 
