@@ -5,6 +5,7 @@ import AuthPage from './pages/AuthPage';
 import Dashboard from './pages/Dashboard';
 import SubjectView from './pages/SubjectView';
 import ChatPage from './pages/ChatPage';
+import QuizPage from './pages/QuizPage';
 import { Loader2 } from 'lucide-react';
 
 // Protected Route Guard
@@ -126,7 +127,7 @@ function App() {
             path="/quiz/:docId" 
             element={
               <ProtectedRoute>
-                <FeatureSkeleton title="AI MCQ Quiz Generator" phase="Phase 4" />
+                <QuizPage />
               </ProtectedRoute>
             } 
           />
