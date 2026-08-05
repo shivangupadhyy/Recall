@@ -82,3 +82,42 @@ export const chatHistories = pgTable('chat_histories', {
   createdAt: timestamp('created_at').defaultNow().notNull(),
   updatedAt: timestamp('updated_at').defaultNow().notNull(),
 });
+
+// UserStats Table
+export const userStats = pgTable('user_stats', {
+  id: serial('id').primaryKey(),
+  userId: integer('user_id').references(() => users.id, { onDelete: 'cascade' }).notNull().unique(),
+  xp: integer('xp').default(0).notNull(),
+  level: integer('level').default(1).notNull(),
+  streak: integer('streak').default(0).notNull(),
+  longestStreak: integer('longest_streak').default(0).notNull(),
+  lastStudyDate: timestamp('last_study_date'),
+  studyTime: integer('study_time').default(0).notNull(), // cumulative in seconds
+  dailyGoalXp: integer('daily_goal_xp').default(100).notNull(),
+  weeklyGoalXp: integer('weekly_goal_xp').default(500).notNull(),
+  monthlyGoalXp: integer('monthly_goal_xp').default(2000).notNull(),
+  createdAt: timestamp('created_at').defaultNow().notNull(),
+  updatedAt: timestamp('updated_at').defaultNow().notNull(),
+});
+
+// UserActivities Table
+export const userActivities = pgTable('user_activities', {
+  id: serial('id').primaryKey(),
+  userId: integer('user_id').references(() => users.id, { onDelete: 'cascade' }).notNull(),
+  activityType: varchar('activity_type', { length: 100 }).notNull(), // 'quiz_completed' | 'flashcards_reviewed' | 'document_uploaded' | 'chat_message_sent'
+  documentId: integer('document_id').references(() => documents.id, { onDelete: 'cascade' }), // nullable
+  score: integer('score'), // nullable (for quiz)
+  totalQuestions: integer('total_questions'), // nullable (for quiz)
+  xpEarned: integer('xp_earned').default(0).notNull(),
+  duration: integer('duration').default(0).notNull(), // in seconds
+  createdAt: timestamp('created_at').defaultNow().notNull(),
+});
+
+// UserAchievements Table
+export const userAchievements = pgTable('user_achievements', {
+  id: serial('id').primaryKey(),
+  userId: integer('user_id').references(() => users.id, { onDelete: 'cascade' }).notNull(),
+  achievementId: varchar('achievement_id', { length: 100 }).notNull(), // 'first_upload' | 'first_quiz' | 'first_flashcards' | 'streak_3' | 'streak_7' | 'perfectionist'
+  unlockedAt: timestamp('unlocked_at').defaultNow().notNull(),
+});
+

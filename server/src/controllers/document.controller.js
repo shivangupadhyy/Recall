@@ -1,6 +1,6 @@
-import { eq, and, desc } from 'drizzle-orm';
+import { eq, and, desc, sql } from 'drizzle-orm';
 import { db } from '../config/db.js';
-import { documents } from '../config/schema.js';
+import { documents, quizzes, flashcards } from '../config/schema.js';
 import storageService from '../services/storageService.js';
 import { addDocumentJob } from '../queues/embeddingQueue.js';
 
@@ -132,5 +132,51 @@ export const deleteDocument = async (req, res) => {
   } catch (error) {
     console.error('Delete document error:', error.message);
     res.status(500).json({ error: 'Server error deleting document' });
+  }
+};
+
+/**
+ * @desc    Get dashboard metrics (document count, unique subjects, quizzes count, flashcards count)
+ * @route   GET /api/documents/stats
+ * @access  Private
+ */
+export const getDashboardStats = async (req, res) => {
+  try {
+    const userId = req.user.id;
+
+    // Get count of documents
+    const [docsCountResult] = await db
+      .select({ count: sql`count(*)` })
+      .from(documents)
+      .where(eq(documents.userId, userId));
+
+    // Get unique subjects
+    const userDocuments = await db
+      .select({ subject: documents.subject })
+      .from(documents)
+      .where(eq(documents.userId, userId));
+    const uniqueSubjects = new Set(userDocuments.map((d) => d.subject.trim().toLowerCase()));
+
+    // Get count of quizzes generated
+    const [quizzesCountResult] = await db
+      .select({ count: sql`count(*)` })
+      .from(quizzes)
+      .where(eq(quizzes.userId, userId));
+
+    // Get count of flashcard decks generated
+    const [flashcardsCountResult] = await db
+      .select({ count: sql`count(*)` })
+      .from(flashcards)
+      .where(eq(flashcards.userId, userId));
+
+    res.status(200).json({
+      documentsCount: parseInt(docsCountResult.count, 10) || 0,
+      subjectsCount: uniqueSubjects.size,
+      quizzesCount: parseInt(quizzesCountResult.count, 10) || 0,
+      flashcardsCount: parseInt(flashcardsCountResult.count, 10) || 0
+    });
+  } catch (error) {
+    console.error('Error in getDashboardStats:', error.message);
+    res.status(500).json({ error: 'Server error retrieving dashboard stats' });
   }
 };

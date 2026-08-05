@@ -145,6 +145,13 @@ export const QuizPage: React.FC = () => {
       setIsAnswerRevealed(false);
     } else {
       setQuizFinished(true);
+      // Log quiz activity to award XP in progress dashboard
+      api.post('/dashboard/activity', {
+        activityType: 'quiz_completed',
+        documentId: parseInt(docId || '', 10),
+        score,
+        totalQuestions: questions.length
+      }).catch(err => console.error('Failed to log quiz activity:', err));
     }
   };
 

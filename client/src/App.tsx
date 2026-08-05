@@ -6,6 +6,7 @@ import Dashboard from './pages/Dashboard';
 import SubjectView from './pages/SubjectView';
 import ChatPage from './pages/ChatPage';
 import QuizPage from './pages/QuizPage';
+import FlashcardsPage from './pages/FlashcardsPage';
 import { Loader2 } from 'lucide-react';
 
 // Protected Route Guard
@@ -135,7 +136,7 @@ function App() {
             path="/flashcards/:docId" 
             element={
               <ProtectedRoute>
-                <FeatureSkeleton title="AI Spaced-Repetition Flashcards" phase="Phase 5" />
+                <FlashcardsPage />
               </ProtectedRoute>
             } 
           />

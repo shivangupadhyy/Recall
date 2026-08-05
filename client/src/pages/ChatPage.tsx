@@ -183,6 +183,12 @@ export const ChatPage: React.FC = () => {
       };
       
       setMessages(prev => [...prev, assistantMessage]);
+
+      // Log chat message activity in the dashboard to award XP
+      api.post('/dashboard/activity', {
+        activityType: 'chat_message_sent',
+        documentId: parseInt(docId || '', 10)
+      }).catch(err => console.error('Failed to log chat activity:', err));
     } catch (err: any) {
       console.error('Failed to generate RAG response:', err);
       // Append failure error message from AI
