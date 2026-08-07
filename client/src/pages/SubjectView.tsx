@@ -214,7 +214,7 @@ export const SubjectView: React.FC = () => {
 
       {/* Footer */}
       <footer className="border-t border-slate-900 bg-slate-950/80 px-6 py-6 text-center text-xs text-slate-600">
-        <p>© 2026 Abhyaas AI. All code files validated for phase execution.</p>
+        <p>© 2026 Recall AI. All code files validated for phase execution.</p>
       </footer>
 
       {/* Upload Modal */}

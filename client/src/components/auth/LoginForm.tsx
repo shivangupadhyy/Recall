@@ -98,7 +98,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onSuccess }) => {
             Signing In...
           </>
         ) : (
-          'Sign In to Abhyaas'
+          'Sign In to Recall'
         )}
       </button>
     </form>

@@ -480,7 +480,7 @@ export const QuizPage: React.FC = () => {
 
       {/* Footer */}
       <footer className="border-t border-slate-900 bg-slate-950/80 px-6 py-6 text-center text-xs text-slate-650 z-20">
-        <p>© 2026 Abhyaas AI.</p>
+        <p>© 2026 Recall AI.</p>
       </footer>
     </div>
   );

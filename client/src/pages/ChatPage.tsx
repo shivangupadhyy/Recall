@@ -294,7 +294,7 @@ export const ChatPage: React.FC = () => {
                   <Bot className="w-8 h-8" />
                 </div>
                 <div className="space-y-2">
-                  <h3 className="text-lg font-bold text-white">Ask Abhyaas AI anything</h3>
+                  <h3 className="text-lg font-bold text-white">Ask Recall AI anything</h3>
                   <p className="text-xs text-slate-400 max-w-sm">
                     Enter a question below, and I will search your uploaded document notes to generate a cited response.
                   </p>

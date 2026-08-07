@@ -11,7 +11,7 @@ import { AnalyticsTab } from '../components/dashboard/AnalyticsTab';
 import { 
   GraduationCap, LogOut, UploadCloud, Folder, FileText, 
   HelpCircle, Sparkles, BookOpen, Clock, ArrowRight, Brain,
-  Flame, Award, Activity, TrendingUp, Lightbulb, CheckCircle2, ChevronRight, X
+  Flame, Award, Activity, TrendingUp, Lightbulb, CheckCircle2, ChevronRight, X, RefreshCw
 } from 'lucide-react';
 import { motion, AnimatePresence } from '../components/dashboard/framerMotionMock';
 
@@ -197,7 +197,7 @@ export const Dashboard: React.FC = () => {
           </div>
           <div>
             <h1 className="text-lg font-black tracking-tight bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent">
-              Abhyaas <span className="text-brand-400 font-medium text-xs px-2 py-0.5 rounded-full bg-brand-500/10 border border-brand-500/20">AI</span>
+              Recall <span className="text-brand-400 font-medium text-xs px-2 py-0.5 rounded-full bg-brand-500/10 border border-brand-500/20">AI</span>
             </h1>
             <p className="text-[10px] text-slate-500 font-semibold">{user?.college || 'Study Space'}</p>
           </div>
@@ -589,7 +589,7 @@ export const Dashboard: React.FC = () => {
 
       {/* Footer */}
       <footer className="border-t border-slate-900 bg-slate-950/80 px-6 py-6 text-center text-xs text-slate-600">
-        <p>© 2026 Abhyaas AI. Redesigned with premium SaaS analytics dashboards.</p>
+        <p>© 2026 Recall AI. Redesigned with premium SaaS analytics dashboards.</p>
       </footer>
 
       {/* Upload Modal */}

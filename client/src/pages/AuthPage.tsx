@@ -27,7 +27,7 @@ export const AuthPage: React.FC = () => {
               <GraduationCap className="w-6 h-6" />
             </div>
             <h1 className="text-xl font-extrabold tracking-tight bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent">
-              Abhyaas <span className="text-brand-400 font-medium text-sm px-2 py-0.5 rounded-full bg-brand-500/10 border border-brand-500/20">AI</span>
+              Recall <span className="text-brand-400 font-medium text-sm px-2 py-0.5 rounded-full bg-brand-500/10 border border-brand-500/20">AI</span>
             </h1>
           </div>
 

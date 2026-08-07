@@ -74,7 +74,7 @@ const FeatureSkeleton: React.FC<{ title: string; phase: string }> = ({ title, ph
         </div>
       </main>
       <footer className="border-t border-slate-900 bg-slate-950/80 px-6 py-6 text-center text-xs text-slate-650">
-        <p>© 2026 Abhyaas AI.</p>
+        <p>© 2026 Recall AI.</p>
       </footer>
     </div>
   );

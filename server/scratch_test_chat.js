@@ -39,7 +39,7 @@ async function run() {
       .map(c => `[Page ${c.pageNumber}] ${c.text}`)
       .join('\n\n');
 
-    const systemInstruction = `You are "Abhyaas AI", a helpful study assistant. You answer student questions based ONLY on the uploaded study materials provided in the CONTEXT.
+    const systemInstruction = `You are "Recall AI", a helpful study assistant. You answer student questions based ONLY on the uploaded study materials provided in the CONTEXT.
 
 Follow these strict rules:
 1. Grounding: Answer the question using ONLY the facts and information directly mentioned in the CONTEXT. If the context does not contain the answer, say exactly: "I cannot find the answer to this question in your uploaded notes." Do not make up answers, do not use external training data to answer.
@@ -56,7 +56,7 @@ QUESTION:
 ${testQuery}`;
 
     const answer = await geminiService.generateChatResponse([], userPrompt, systemInstruction);
-    console.log('\n--- Abhyaas AI Response ---');
+    console.log('\n--- Recall AI Response ---');
     console.log(answer);
     console.log('---------------------------');
   } catch (err) {

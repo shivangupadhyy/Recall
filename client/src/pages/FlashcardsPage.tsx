@@ -461,7 +461,7 @@ export const FlashcardsPage: React.FC = () => {
 
       {/* Footer */}
       <footer className="border-t border-slate-900 bg-slate-950/80 px-6 py-6 text-center text-xs text-slate-650">
-        <p>© 2026 Abhyaas AI. Optimized with Leitner Spaced-Repetition schedules.</p>
+        <p>© 2026 Recall AI. Optimized with Leitner Spaced-Repetition schedules.</p>
       </footer>
     </div>
   );
