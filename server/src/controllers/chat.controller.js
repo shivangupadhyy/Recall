@@ -1,6 +1,6 @@
-import { eq, and, sql } from 'drizzle-orm';
+import { eq, and, sql, or } from 'drizzle-orm';
 import { db } from '../config/db.js';
-import { documents, chunks, chatHistories } from '../config/schema.js';
+import { documents, chunks, chatHistories, users } from '../config/schema.js';
 import geminiService from '../services/geminiService.js';
 
 /**
@@ -17,11 +17,31 @@ export const getChatHistory = async (req, res) => {
       return res.status(400).json({ error: 'Invalid document ID' });
     }
 
-    // Verify document belongs to user
+    // Verify document belongs to user or is shared in their college
     const [doc] = await db
-      .select()
+      .select({
+        id: documents.id,
+        userId: documents.userId,
+        subject: documents.subject,
+        title: documents.title,
+        fileUrl: documents.fileUrl,
+        status: documents.status,
+        totalChunks: documents.totalChunks
+      })
       .from(documents)
-      .where(and(eq(documents.id, docId), eq(documents.userId, userId)))
+      .innerJoin(users, eq(documents.userId, users.id))
+      .where(
+        and(
+          eq(documents.id, docId),
+          or(
+            eq(documents.userId, userId),
+            and(
+              eq(documents.isPublic, true),
+              eq(users.college, req.user.college)
+            )
+          )
+        )
+      )
       .limit(1);
 
     if (!doc) {
@@ -63,11 +83,31 @@ export const sendMessage = async (req, res) => {
       return res.status(400).json({ error: 'Please provide a question' });
     }
 
-    // 1. Verify document belongs to user
+    // 1. Verify document belongs to user or is shared in their college
     const [doc] = await db
-      .select()
+      .select({
+        id: documents.id,
+        userId: documents.userId,
+        subject: documents.subject,
+        title: documents.title,
+        fileUrl: documents.fileUrl,
+        status: documents.status,
+        totalChunks: documents.totalChunks
+      })
       .from(documents)
-      .where(and(eq(documents.id, docId), eq(documents.userId, userId)))
+      .innerJoin(users, eq(documents.userId, users.id))
+      .where(
+        and(
+          eq(documents.id, docId),
+          or(
+            eq(documents.userId, userId),
+            and(
+              eq(documents.isPublic, true),
+              eq(users.college, req.user.college)
+            )
+          )
+        )
+      )
       .limit(1);
 
     if (!doc) {
@@ -198,11 +238,31 @@ export const clearChatHistory = async (req, res) => {
       return res.status(400).json({ error: 'Invalid document ID' });
     }
 
-    // Verify document belongs to user
+    // Verify document belongs to user or is shared in their college
     const [doc] = await db
-      .select()
+      .select({
+        id: documents.id,
+        userId: documents.userId,
+        subject: documents.subject,
+        title: documents.title,
+        fileUrl: documents.fileUrl,
+        status: documents.status,
+        totalChunks: documents.totalChunks
+      })
       .from(documents)
-      .where(and(eq(documents.id, docId), eq(documents.userId, userId)))
+      .innerJoin(users, eq(documents.userId, users.id))
+      .where(
+        and(
+          eq(documents.id, docId),
+          or(
+            eq(documents.userId, userId),
+            and(
+              eq(documents.isPublic, true),
+              eq(users.college, req.user.college)
+            )
+          )
+        )
+      )
       .limit(1);
 
     if (!doc) {

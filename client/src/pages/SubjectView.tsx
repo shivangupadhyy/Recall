@@ -154,6 +154,15 @@ export const SubjectView: React.FC = () => {
                             extraction failed
                           </span>
                         )}
+                        {doc.isShared ? (
+                          <span className="inline-flex items-center gap-1 text-[10px] font-bold bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 px-2.5 py-0.5 rounded-full">
+                            Shared by {doc.creatorName}
+                          </span>
+                        ) : doc.isPublic ? (
+                          <span className="inline-flex items-center gap-1 text-[10px] font-bold bg-brand-500/10 text-brand-400 border border-brand-500/20 px-2.5 py-0.5 rounded-full">
+                            Shared with College
+                          </span>
+                        ) : null}
                         <span className="text-[10px] text-slate-500">
                           Uploaded {new Date(doc.createdAt).toLocaleDateString()}
                         </span>
@@ -195,13 +204,15 @@ export const SubjectView: React.FC = () => {
                     </button>
 
                     {/* Delete button */}
-                    <button
-                      onClick={() => handleDelete(doc._id)}
-                      className="p-2 text-slate-400 hover:text-red-400 hover:bg-red-500/10 rounded-xl border border-transparent hover:border-red-500/25 transition-all"
-                      title="Delete notes"
-                    >
-                      <Trash2 className="w-4 h-4" />
-                    </button>
+                    {!doc.isShared && (
+                      <button
+                        onClick={() => handleDelete(doc._id)}
+                        className="p-2 text-slate-400 hover:text-red-400 hover:bg-red-500/10 rounded-xl border border-transparent hover:border-red-500/25 transition-all"
+                        title="Delete notes"
+                      >
+                        <Trash2 className="w-4 h-4" />
+                      </button>
+                    )}
                     
                   </div>
                 </div>

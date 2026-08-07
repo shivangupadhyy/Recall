@@ -1,4 +1,4 @@
-import { pgTable, serial, text, varchar, integer, timestamp, customType } from 'drizzle-orm/pg-core';
+import { pgTable, serial, text, varchar, integer, timestamp, customType, boolean } from 'drizzle-orm/pg-core';
 
 // Custom pgvector type for Drizzle (uses base 'vector' type without dimensions to support pgvector v0.5.0+)
 export const vector = customType({
@@ -37,6 +37,7 @@ export const documents = pgTable('documents', {
   fileUrl: varchar('file_url', { length: 500 }).notNull(),
   status: varchar('status', { length: 50 }).default('processing').notNull(), // 'processing' | 'ready' | 'failed'
   totalChunks: integer('total_chunks').default(0).notNull(),
+  isPublic: boolean('is_public').default(false).notNull(),
   createdAt: timestamp('created_at').defaultNow().notNull(),
   updatedAt: timestamp('updated_at').defaultNow().notNull(),
 });

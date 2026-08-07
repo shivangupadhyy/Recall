@@ -1,6 +1,6 @@
-import { eq, and } from 'drizzle-orm';
+import { eq, and, or } from 'drizzle-orm';
 import { db } from '../config/db.js';
-import { documents, flashcards } from '../config/schema.js';
+import { documents, flashcards, users } from '../config/schema.js';
 import { addFlashcardJob, flashcardQueue } from '../queues/flashcardQueue.js';
 
 /**
@@ -17,11 +17,28 @@ export const getFlashcards = async (req, res) => {
       return res.status(400).json({ error: 'Invalid document ID' });
     }
 
-    // Verify document belongs to user
+    // Verify document belongs to user or is shared in their college
     const [doc] = await db
-      .select()
+      .select({
+        id: documents.id,
+        userId: documents.userId,
+        status: documents.status,
+        totalChunks: documents.totalChunks
+      })
       .from(documents)
-      .where(and(eq(documents.id, docId), eq(documents.userId, userId)))
+      .innerJoin(users, eq(documents.userId, users.id))
+      .where(
+        and(
+          eq(documents.id, docId),
+          or(
+            eq(documents.userId, userId),
+            and(
+              eq(documents.isPublic, true),
+              eq(users.college, req.user.college)
+            )
+          )
+        )
+      )
       .limit(1);
 
     if (!doc) {
@@ -72,11 +89,28 @@ export const generateFlashcards = async (req, res) => {
       return res.status(400).json({ error: 'Invalid document ID' });
     }
 
-    // Verify document belongs to user and is ready
+    // Verify document belongs to user or is shared in their college and is ready
     const [doc] = await db
-      .select()
+      .select({
+        id: documents.id,
+        userId: documents.userId,
+        status: documents.status,
+        totalChunks: documents.totalChunks
+      })
       .from(documents)
-      .where(and(eq(documents.id, docId), eq(documents.userId, userId)))
+      .innerJoin(users, eq(documents.userId, users.id))
+      .where(
+        and(
+          eq(documents.id, docId),
+          or(
+            eq(documents.userId, userId),
+            and(
+              eq(documents.isPublic, true),
+              eq(users.college, req.user.college)
+            )
+          )
+        )
+      )
       .limit(1);
 
     if (!doc) {
@@ -139,11 +173,28 @@ export const updateFlashcardsReview = async (req, res) => {
       return res.status(400).json({ error: 'Cards must be provided as an array' });
     }
 
-    // Verify document belongs to user
+    // Verify document belongs to user or is shared in their college
     const [doc] = await db
-      .select()
+      .select({
+        id: documents.id,
+        userId: documents.userId,
+        status: documents.status,
+        totalChunks: documents.totalChunks
+      })
       .from(documents)
-      .where(and(eq(documents.id, docId), eq(documents.userId, userId)))
+      .innerJoin(users, eq(documents.userId, users.id))
+      .where(
+        and(
+          eq(documents.id, docId),
+          or(
+            eq(documents.userId, userId),
+            and(
+              eq(documents.isPublic, true),
+              eq(users.college, req.user.college)
+            )
+          )
+        )
+      )
       .limit(1);
 
     if (!doc) {

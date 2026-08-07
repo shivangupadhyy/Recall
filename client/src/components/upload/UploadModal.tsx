@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import api from '../../api/api';
 import { X, UploadCloud, AlertCircle, CheckCircle2, Loader2, BookOpen, Bookmark } from 'lucide-react';
+import { useAuth } from '../../context/AuthContext';
 
 interface UploadModalProps {
   isOpen: boolean;
@@ -9,8 +10,10 @@ interface UploadModalProps {
 }
 
 export const UploadModal: React.FC<UploadModalProps> = ({ isOpen, onClose, onUploadSuccess }) => {
+  const { user } = useAuth();
   const [subject, setSubject] = useState('');
   const [title, setTitle] = useState('');
+  const [isPublic, setIsPublic] = useState(false);
   const [file, setFile] = useState<File | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -49,6 +52,7 @@ export const UploadModal: React.FC<UploadModalProps> = ({ isOpen, onClose, onUpl
     const formData = new FormData();
     formData.append('subject', subject.trim());
     formData.append('title', title.trim());
+    formData.append('isPublic', String(isPublic));
     formData.append('file', file);
 
     try {
@@ -62,6 +66,7 @@ export const UploadModal: React.FC<UploadModalProps> = ({ isOpen, onClose, onUpl
         setSuccess(false);
         setSubject('');
         setTitle('');
+        setIsPublic(false);
         setFile(null);
         onUploadSuccess();
         onClose();
@@ -182,6 +187,21 @@ export const UploadModal: React.FC<UploadModalProps> = ({ isOpen, onClose, onUpl
                   )}
                 </div>
               </div>
+            </div>
+
+            {/* Share checkbox */}
+            <div className="flex items-center gap-2.5 px-1 py-1">
+              <input
+                id="upload-is-public"
+                type="checkbox"
+                checked={isPublic}
+                onChange={(e) => setIsPublic(e.target.checked)}
+                className="w-4 h-4 rounded text-brand-600 bg-slate-950 border-slate-800 focus:ring-brand-500 focus:ring-1 focus:ring-offset-0 focus:outline-none cursor-pointer"
+                disabled={loading}
+              />
+              <label htmlFor="upload-is-public" className="text-xs font-semibold text-slate-400 cursor-pointer select-none">
+                Share notes with fellow students of <span className="text-brand-400">{user?.college || 'my college'}</span>
+              </label>
             </div>
 
             {/* Submit Button */}

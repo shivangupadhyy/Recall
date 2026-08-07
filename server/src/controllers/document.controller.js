@@ -1,6 +1,6 @@
-import { eq, and, desc, sql } from 'drizzle-orm';
+import { eq, and, desc, sql, or } from 'drizzle-orm';
 import { db } from '../config/db.js';
-import { documents, quizzes, flashcards } from '../config/schema.js';
+import { documents, quizzes, flashcards, users } from '../config/schema.js';
 import storageService from '../services/storageService.js';
 import { addDocumentJob } from '../queues/embeddingQueue.js';
 
@@ -12,6 +12,7 @@ import { addDocumentJob } from '../queues/embeddingQueue.js';
 export const uploadDocument = async (req, res) => {
   try {
     const { subject, title } = req.body;
+    const isPublic = req.body.isPublic === 'true' || req.body.isPublic === true;
     const file = req.file;
 
     // Validation
@@ -36,6 +37,7 @@ export const uploadDocument = async (req, res) => {
       subject,
       title,
       fileUrl,
+      isPublic,
       status: 'processing', // starts as processing, Phase 2 will queue the processing
     }).returning();
 
@@ -56,6 +58,7 @@ export const uploadDocument = async (req, res) => {
         subject: document.subject,
         title: document.title,
         fileUrl: document.fileUrl,
+        isPublic: document.isPublic,
         status: document.status,
         totalChunks: document.totalChunks,
         createdAt: document.createdAt,
@@ -75,9 +78,29 @@ export const uploadDocument = async (req, res) => {
 export const getDocuments = async (req, res) => {
   try {
     const userDocuments = await db
-      .select()
+      .select({
+        id: documents.id,
+        userId: documents.userId,
+        subject: documents.subject,
+        title: documents.title,
+        fileUrl: documents.fileUrl,
+        status: documents.status,
+        totalChunks: documents.totalChunks,
+        isPublic: documents.isPublic,
+        createdAt: documents.createdAt,
+        creatorName: users.name
+      })
       .from(documents)
-      .where(eq(documents.userId, req.user.id))
+      .innerJoin(users, eq(documents.userId, users.id))
+      .where(
+        or(
+          eq(documents.userId, req.user.id),
+          and(
+            eq(documents.isPublic, true),
+            eq(users.college, req.user.college)
+          )
+        )
+      )
       .orderBy(desc(documents.createdAt));
 
     // Map database structures for frontend compatibility if needed
@@ -90,7 +113,10 @@ export const getDocuments = async (req, res) => {
       fileUrl: doc.fileUrl,
       status: doc.status,
       totalChunks: doc.totalChunks,
+      isPublic: doc.isPublic,
       createdAt: doc.createdAt,
+      creatorName: doc.creatorName,
+      isShared: doc.userId !== req.user.id
     }));
 
     res.status(200).json({ documents: formattedDocs });
@@ -148,14 +174,32 @@ export const getDashboardStats = async (req, res) => {
     const [docsCountResult] = await db
       .select({ count: sql`count(*)` })
       .from(documents)
-      .where(eq(documents.userId, userId));
+      .innerJoin(users, eq(documents.userId, users.id))
+      .where(
+        or(
+          eq(documents.userId, userId),
+          and(
+            eq(documents.isPublic, true),
+            eq(users.college, req.user.college)
+          )
+        )
+      );
 
     // Get unique subjects
-    const userDocuments = await db
+    const accessibleDocs = await db
       .select({ subject: documents.subject })
       .from(documents)
-      .where(eq(documents.userId, userId));
-    const uniqueSubjects = new Set(userDocuments.map((d) => d.subject.trim().toLowerCase()));
+      .innerJoin(users, eq(documents.userId, users.id))
+      .where(
+        or(
+          eq(documents.userId, userId),
+          and(
+            eq(documents.isPublic, true),
+            eq(users.college, req.user.college)
+          )
+        )
+      );
+    const uniqueSubjects = new Set(accessibleDocs.map((d) => d.subject.trim().toLowerCase()));
 
     // Get count of quizzes generated
     const [quizzesCountResult] = await db
