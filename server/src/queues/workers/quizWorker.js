@@ -6,7 +6,7 @@ import { bullMQConnection } from '../../config/redis.js';
 import geminiService from '../../services/geminiService.js';
 
 const worker = new Worker(
-  'quizQueue',
+  'quizQueue_v2',
   async (job) => {
     const { documentId, userId } = job.data;
     console.log(`[Quiz Worker] Started generating quiz for document ID: ${documentId}`);

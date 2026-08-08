@@ -6,7 +6,7 @@ import { bullMQConnection } from '../../config/redis.js';
 import geminiService from '../../services/geminiService.js';
 
 const worker = new Worker(
-  'flashcardQueue',
+  'flashcardQueue_v2',
   async (job) => {
     const { documentId, userId } = job.data;
     console.log(`[Flashcard Worker] Started generating flashcards for document ID: ${documentId}`);

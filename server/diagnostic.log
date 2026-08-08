@@ -1,0 +1,387 @@
+2026-08-08T11:55:06.412Z - --- RUNNING DIAGNOSTIC --- 
+2026-08-08T11:55:06.414Z - Found PDF files: ["1785866234217-835865818.pdf","1785866661752-345737947.pdf","1786189522448-713946587.pdf","1786189644816-291293748.pdf"] 
+2026-08-08T11:55:06.415Z - Testing PDF path: E:\Recall\server\uploads\1786189644816-291293748.pdf 
+2026-08-08T11:55:06.416Z - Importing services... 
+2026-08-08T11:55:06.418Z - Attempting text extraction... 
+2026-08-08T11:55:06.720Z - Extraction completed. Raw text length: 83681 
+2026-08-08T11:55:06.721Z - Attempting chunking... 
+2026-08-08T11:55:06.727Z - Chunking completed. Chunks count: 169 
+2026-08-08T11:55:06.727Z - Attempting to embed first chunk... 
+2026-08-08T11:55:07.501Z - Embedding completed. Dimensions: 768 
+2026-08-08T11:55:07.502Z - Attempting batch embedding... 
+2026-08-08T11:55:08.163Z - Batch embedding completed. Count: 2 
+2026-08-08T11:55:08.164Z - --- DIAGNOSTIC FINISHED --- 
+2026-08-08T11:55:17.069Z - --- RUNNING DIAGNOSTIC --- 
+2026-08-08T11:55:17.072Z - Found PDF files: ["1785866234217-835865818.pdf","1785866661752-345737947.pdf","1786189522448-713946587.pdf","1786189644816-291293748.pdf"] 
+2026-08-08T11:55:17.073Z - Testing PDF path: E:\Recall\server\uploads\1786189644816-291293748.pdf 
+2026-08-08T11:55:17.074Z - Importing services... 
+2026-08-08T11:55:17.078Z - Attempting text extraction... 
+2026-08-08T11:55:17.447Z - Extraction completed. Raw text length: 83681 
+2026-08-08T11:55:17.448Z - Attempting chunking... 
+2026-08-08T11:55:17.452Z - Chunking completed. Chunks count: 169 
+2026-08-08T11:55:17.453Z - Attempting to embed first chunk... 
+2026-08-08T11:55:18.180Z - Embedding completed. Dimensions: 768 
+2026-08-08T11:55:18.180Z - Attempting batch embedding... 
+2026-08-08T11:55:18.830Z - Batch embedding completed. Count: 2 
+2026-08-08T11:55:18.831Z - --- DIAGNOSTIC FINISHED --- 
+2026-08-08T11:55:24.592Z - --- RUNNING DIAGNOSTIC --- 
+2026-08-08T11:55:24.594Z - Found PDF files: ["1785866234217-835865818.pdf","1785866661752-345737947.pdf","1786189522448-713946587.pdf","1786189644816-291293748.pdf"] 
+2026-08-08T11:55:24.595Z - Testing PDF path: E:\Recall\server\uploads\1786189644816-291293748.pdf 
+2026-08-08T11:55:24.596Z - Importing services... 
+2026-08-08T11:55:24.598Z - Attempting text extraction... 
+2026-08-08T11:55:24.871Z - Extraction completed. Raw text length: 83681 
+2026-08-08T11:55:24.872Z - Attempting chunking... 
+2026-08-08T11:55:24.875Z - Chunking completed. Chunks count: 169 
+2026-08-08T11:55:24.876Z - Attempting to embed first chunk... 
+2026-08-08T11:55:25.932Z - Embedding completed. Dimensions: 768 
+2026-08-08T11:55:25.932Z - Attempting batch embedding... 
+2026-08-08T11:55:26.578Z - Batch embedding completed. Count: 2 
+2026-08-08T11:55:26.579Z - Attempting database insert test... 
+2026-08-08T11:55:27.098Z - Found test user ID: 1, doc ID: 8. Inserting test chunk... 
+2026-08-08T11:55:27.356Z - Database insert test successful! Inserted ID: 100 
+2026-08-08T11:55:27.609Z - Database clean up test successful! 
+2026-08-08T11:55:27.609Z - --- DIAGNOSTIC FINISHED --- 
+2026-08-08T11:55:39.664Z - --- RUNNING DIAGNOSTIC --- 
+2026-08-08T11:55:39.666Z - Found PDF files: ["1785866234217-835865818.pdf","1785866661752-345737947.pdf","1786189522448-713946587.pdf","1786189644816-291293748.pdf"] 
+2026-08-08T11:55:39.667Z - Testing PDF path: E:\Recall\server\uploads\1786189644816-291293748.pdf 
+2026-08-08T11:55:39.667Z - Importing services... 
+2026-08-08T11:55:39.669Z - Attempting text extraction... 
+2026-08-08T11:55:39.938Z - Extraction completed. Raw text length: 83681 
+2026-08-08T11:55:39.938Z - Attempting chunking... 
+2026-08-08T11:55:39.941Z - Chunking completed. Chunks count: 169 
+2026-08-08T11:55:39.942Z - Attempting to embed first chunk... 
+2026-08-08T11:55:40.686Z - Embedding completed. Dimensions: 768 
+2026-08-08T11:55:40.687Z - Attempting batch embedding... 
+2026-08-08T11:55:41.329Z - Batch embedding completed. Count: 2 
+2026-08-08T11:55:41.330Z - Attempting database insert test... 
+2026-08-08T11:55:41.943Z - Found test user ID: 1, doc ID: 8. Inserting test chunk... 
+2026-08-08T11:55:42.229Z - Database insert test successful! Inserted ID: 101 
+2026-08-08T11:55:42.475Z - Database clean up test successful! 
+2026-08-08T11:55:42.476Z - Attempting to trigger a background worker job for this document... 
+2026-08-08T11:55:42.699Z - Background job queued successfully! 
+2026-08-08T11:55:42.700Z - --- DIAGNOSTIC FINISHED --- 
+2026-08-08T11:55:53.434Z - --- RUNNING DIAGNOSTIC --- 
+2026-08-08T11:55:53.436Z - Found PDF files: ["1785866234217-835865818.pdf","1785866661752-345737947.pdf","1786189522448-713946587.pdf","1786189644816-291293748.pdf"] 
+2026-08-08T11:55:53.436Z - Testing PDF path: E:\Recall\server\uploads\1786189644816-291293748.pdf 
+2026-08-08T11:55:53.437Z - Importing services... 
+2026-08-08T11:55:53.438Z - Attempting text extraction... 
+2026-08-08T11:55:53.708Z - Extraction completed. Raw text length: 83681 
+2026-08-08T11:55:53.709Z - Attempting chunking... 
+2026-08-08T11:55:53.711Z - Chunking completed. Chunks count: 169 
+2026-08-08T11:55:53.712Z - Attempting to embed first chunk... 
+2026-08-08T11:55:54.756Z - Embedding completed. Dimensions: 768 
+2026-08-08T11:55:54.757Z - Attempting batch embedding... 
+2026-08-08T11:55:55.430Z - Batch embedding completed. Count: 2 
+2026-08-08T11:55:55.431Z - Attempting database insert test... 
+2026-08-08T11:55:55.946Z - Found test user ID: 1, doc ID: 8. Inserting test chunk... 
+2026-08-08T11:55:56.217Z - Database insert test successful! Inserted ID: 102 
+2026-08-08T11:55:56.530Z - Database clean up test successful! 
+2026-08-08T11:55:56.531Z - Attempting to trigger a background worker job for this document... 
+2026-08-08T11:55:56.590Z - Background job queued successfully! 
+2026-08-08T11:55:56.590Z - --- DIAGNOSTIC FINISHED --- 
+2026-08-08T11:56:06.442Z - --- RUNNING DIAGNOSTIC --- 
+2026-08-08T11:56:06.443Z - Found PDF files: ["1785866234217-835865818.pdf","1785866661752-345737947.pdf","1786189522448-713946587.pdf","1786189644816-291293748.pdf"] 
+2026-08-08T11:56:06.444Z - Testing PDF path: E:\Recall\server\uploads\1786189644816-291293748.pdf 
+2026-08-08T11:56:06.444Z - Importing services... 
+2026-08-08T11:56:06.446Z - Attempting text extraction... 
+2026-08-08T11:56:06.727Z - Extraction completed. Raw text length: 83681 
+2026-08-08T11:56:06.728Z - Attempting chunking... 
+2026-08-08T11:56:06.731Z - Chunking completed. Chunks count: 169 
+2026-08-08T11:56:06.732Z - Attempting to embed first chunk... 
+2026-08-08T11:56:07.779Z - Embedding completed. Dimensions: 768 
+2026-08-08T11:56:07.780Z - Attempting batch embedding... 
+2026-08-08T11:56:08.431Z - Batch embedding completed. Count: 2 
+2026-08-08T11:56:08.432Z - Attempting database insert test... 
+2026-08-08T11:56:08.925Z - Found test user ID: 1, doc ID: 8. Inserting test chunk... 
+2026-08-08T11:56:09.187Z - Database insert test successful! Inserted ID: 103 
+2026-08-08T11:56:09.429Z - Database clean up test successful! 
+2026-08-08T11:56:09.429Z - Attempting to trigger a background worker job for this document... 
+2026-08-08T11:56:09.539Z - Background job queued successfully! Job ID: 14 
+2026-08-08T11:56:11.077Z - Embedding Queue Job Counts: {"active":3,"completed":0,"delayed":0,"failed":8,"paused":0,"prioritized":0,"waiting":0,"waiting-children":0} 
+2026-08-08T11:56:11.100Z - Queued job state: active 
+2026-08-08T11:56:11.100Z - --- DIAGNOSTIC FINISHED --- 
+2026-08-08T11:56:20.610Z - --- RUNNING DIAGNOSTIC --- 
+2026-08-08T11:56:20.612Z - Found PDF files: ["1785866234217-835865818.pdf","1785866661752-345737947.pdf","1786189522448-713946587.pdf","1786189644816-291293748.pdf"] 
+2026-08-08T11:56:20.612Z - Testing PDF path: E:\Recall\server\uploads\1786189644816-291293748.pdf 
+2026-08-08T11:56:20.613Z - Importing services... 
+2026-08-08T11:56:20.614Z - Attempting text extraction... 
+2026-08-08T11:56:20.883Z - Extraction completed. Raw text length: 83681 
+2026-08-08T11:56:20.884Z - Attempting chunking... 
+2026-08-08T11:56:20.887Z - Chunking completed. Chunks count: 169 
+2026-08-08T11:56:20.887Z - Attempting to embed first chunk... 
+2026-08-08T11:56:21.901Z - Embedding completed. Dimensions: 768 
+2026-08-08T11:56:21.902Z - Attempting batch embedding of size 30... 
+2026-08-08T11:56:23.655Z - Batch embedding completed. Count: 30 
+2026-08-08T11:56:23.655Z - Attempting database insert test... 
+2026-08-08T11:56:24.155Z - Found test user ID: 1, doc ID: 8. Inserting test chunk... 
+2026-08-08T11:56:24.474Z - Database insert test successful! Inserted ID: 105 
+2026-08-08T11:56:24.713Z - Database clean up test successful! 
+2026-08-08T11:56:24.713Z - Attempting to trigger a background worker job for this document... 
+2026-08-08T11:56:24.777Z - Background job queued successfully! Job ID: 15 
+2026-08-08T11:56:26.310Z - Embedding Queue Job Counts: {"active":4,"completed":0,"delayed":0,"failed":8,"paused":0,"prioritized":0,"waiting":0,"waiting-children":0} 
+2026-08-08T11:56:26.336Z - Queued job state: active 
+2026-08-08T11:56:26.336Z - --- DIAGNOSTIC FINISHED --- 
+2026-08-08T11:56:35.178Z - [Worker Success] Successfully completed processing document ID: 8
+2026-08-08T11:57:04.977Z - --- RUNNING DIAGNOSTIC --- 
+2026-08-08T11:57:04.978Z - Found PDF files: ["1785866234217-835865818.pdf","1785866661752-345737947.pdf","1786189522448-713946587.pdf","1786189644816-291293748.pdf"] 
+2026-08-08T11:57:04.979Z - Testing PDF path: E:\Recall\server\uploads\1786189644816-291293748.pdf 
+2026-08-08T11:57:04.979Z - Importing services... 
+2026-08-08T11:57:04.980Z - Attempting text extraction... 
+2026-08-08T11:57:05.264Z - Extraction completed. Raw text length: 83681 
+2026-08-08T11:57:05.265Z - Attempting chunking... 
+2026-08-08T11:57:05.268Z - Chunking completed. Chunks count: 169 
+2026-08-08T11:57:05.268Z - Attempting to embed first chunk... 
+2026-08-08T11:57:06.288Z - Embedding completed. Dimensions: 768 
+2026-08-08T11:57:06.288Z - Attempting batch embedding of size 30... 
+2026-08-08T11:57:07.888Z - Batch embedding completed. Count: 30 
+2026-08-08T11:57:07.889Z - Attempting database insert test... 
+2026-08-08T11:57:08.652Z - Found test user ID: 1, doc ID: 7. Inserting test chunk... 
+2026-08-08T11:57:08.931Z - Database insert test successful! Inserted ID: 112 
+2026-08-08T11:57:09.177Z - Database clean up test successful! 
+2026-08-08T11:57:09.177Z - Attempting to trigger a background worker job for this document... 
+2026-08-08T11:57:09.563Z - Background job queued successfully! Job ID: 1 
+2026-08-08T11:57:11.098Z - Embedding Queue Job Counts: {"active":1,"completed":0,"delayed":0,"failed":0,"paused":0,"prioritized":0,"waiting":0,"waiting-children":0} 
+2026-08-08T11:57:11.127Z - Queued job state: active 
+2026-08-08T11:57:11.128Z - --- DIAGNOSTIC FINISHED --- 
+2026-08-08T11:57:18.237Z - [Worker Success] Successfully completed processing document ID: 7
+2026-08-08T11:57:24.888Z - --- RUNNING DIAGNOSTIC --- 
+2026-08-08T11:57:24.890Z - Found PDF files: ["1785866234217-835865818.pdf","1785866661752-345737947.pdf","1786189522448-713946587.pdf","1786189644816-291293748.pdf"] 
+2026-08-08T11:57:24.891Z - Testing PDF path: E:\Recall\server\uploads\1786189644816-291293748.pdf 
+2026-08-08T11:57:24.891Z - Importing services... 
+2026-08-08T11:57:24.893Z - Attempting text extraction... 
+2026-08-08T11:57:25.171Z - Extraction completed. Raw text length: 83681 
+2026-08-08T11:57:25.171Z - Attempting chunking... 
+2026-08-08T11:57:25.174Z - Chunking completed. Chunks count: 169 
+2026-08-08T11:57:25.175Z - Attempting to embed first chunk... 
+2026-08-08T11:57:25.897Z - Embedding completed. Dimensions: 768 
+2026-08-08T11:57:25.898Z - Attempting batch embedding of size 30... 
+2026-08-08T11:57:27.581Z - Batch embedding completed. Count: 30 
+2026-08-08T11:57:27.581Z - Attempting database insert test... 
+2026-08-08T11:57:28.073Z - Found test user ID: 1, doc ID: 9. Inserting test chunk... 
+2026-08-08T11:57:36.856Z - Database insert test successful! Inserted ID: 116 
+2026-08-08T11:57:37.096Z - Database clean up test successful! 
+2026-08-08T11:57:37.097Z - Attempting to trigger a background worker job for this document... 
+2026-08-08T11:57:37.148Z - Background job queued successfully! Job ID: 2 
+2026-08-08T11:57:37.414Z - [Worker Process Error] Document 9 failed: bad XRef entry
+Stack: Error
+    at UnknownErrorExceptionClosure (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:443:37)
+    at Object.<anonymous> (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:446:2)
+    at __w_pdfjs_require__ (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:45:30)
+    at Object.<anonymous> (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:7939:23)
+    at __w_pdfjs_require__ (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:45:30)
+    at E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:88:18
+    at E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:91:10
+    at webpackUniversalModuleDefinition (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:18:20)
+    at Object.<anonymous> (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:25:3)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+2026-08-08T11:57:37.710Z - [Worker Job Failed] Job 2 failed: bad XRef entry
+Stack: Error
+    at UnknownErrorExceptionClosure (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:443:37)
+    at Object.<anonymous> (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:446:2)
+    at __w_pdfjs_require__ (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:45:30)
+    at Object.<anonymous> (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:7939:23)
+    at __w_pdfjs_require__ (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:45:30)
+    at E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:88:18
+    at E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:91:10
+    at webpackUniversalModuleDefinition (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:18:20)
+    at Object.<anonymous> (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:25:3)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+2026-08-08T11:57:38.674Z - Embedding Queue Job Counts: {"active":0,"completed":0,"delayed":1,"failed":0,"paused":0,"prioritized":0,"waiting":0,"waiting-children":0} 
+2026-08-08T11:57:38.697Z - Queued job state: delayed 
+2026-08-08T11:57:38.697Z - --- DIAGNOSTIC FINISHED --- 
+2026-08-08T11:57:43.621Z - --- RUNNING DIAGNOSTIC --- 
+2026-08-08T11:57:43.624Z - Found PDF files: ["1785866234217-835865818.pdf","1785866661752-345737947.pdf","1786189522448-713946587.pdf","1786189644816-291293748.pdf"] 
+2026-08-08T11:57:43.625Z - Testing PDF path: E:\Recall\server\uploads\1786189644816-291293748.pdf 
+2026-08-08T11:57:43.625Z - Importing services... 
+2026-08-08T11:57:43.628Z - Attempting text extraction... 
+2026-08-08T11:57:43.850Z - Extraction completed. Raw text length: 83681 
+2026-08-08T11:57:43.851Z - Attempting chunking... 
+2026-08-08T11:57:43.854Z - Chunking completed. Chunks count: 169 
+2026-08-08T11:57:43.854Z - Attempting to embed first chunk... 
+2026-08-08T11:57:47.815Z - --- RUNNING DIAGNOSTIC --- 
+2026-08-08T11:57:47.817Z - Found PDF files: ["1785866234217-835865818.pdf","1785866661752-345737947.pdf","1786189522448-713946587.pdf","1786189644816-291293748.pdf"] 
+2026-08-08T11:57:47.818Z - Testing PDF path: E:\Recall\server\uploads\1786189644816-291293748.pdf 
+2026-08-08T11:57:47.819Z - Importing services... 
+2026-08-08T11:57:47.821Z - Attempting text extraction... 
+2026-08-08T11:57:51.910Z - --- RUNNING DIAGNOSTIC --- 
+2026-08-08T11:57:51.912Z - Found PDF files: ["1785866234217-835865818.pdf","1785866661752-345737947.pdf","1786189522448-713946587.pdf","1786189644816-291293748.pdf"] 
+2026-08-08T11:57:51.912Z - Testing PDF path: E:\Recall\server\uploads\1786189644816-291293748.pdf 
+2026-08-08T11:57:51.913Z - Importing services... 
+2026-08-08T11:57:51.914Z - Attempting text extraction... 
+2026-08-08T11:57:52.189Z - Extraction completed. Raw text length: 83681 
+2026-08-08T11:57:52.190Z - Attempting chunking... 
+2026-08-08T11:57:52.193Z - Chunking completed. Chunks count: 169 
+2026-08-08T11:57:52.194Z - Attempting to embed first chunk... 
+2026-08-08T11:57:56.215Z - --- RUNNING DIAGNOSTIC --- 
+2026-08-08T11:57:56.216Z - Found PDF files: ["1785866234217-835865818.pdf","1785866661752-345737947.pdf","1786189522448-713946587.pdf","1786189644816-291293748.pdf"] 
+2026-08-08T11:57:56.217Z - Testing PDF path: E:\Recall\server\uploads\1786189644816-291293748.pdf 
+2026-08-08T11:57:56.218Z - Importing services... 
+2026-08-08T11:57:56.220Z - Attempting text extraction... 
+2026-08-08T11:57:56.477Z - Extraction completed. Raw text length: 83681 
+2026-08-08T11:57:56.478Z - Attempting chunking... 
+2026-08-08T11:57:56.482Z - Chunking completed. Chunks count: 169 
+2026-08-08T11:57:56.482Z - Attempting to embed first chunk... 
+2026-08-08T11:57:57.490Z - Embedding completed. Dimensions: 768 
+2026-08-08T11:57:57.491Z - Attempting batch embedding of size 30... 
+2026-08-08T11:57:59.195Z - Batch embedding completed. Count: 30 
+2026-08-08T11:57:59.195Z - Attempting database insert test... 
+2026-08-08T11:57:59.679Z - Found test user ID: 1, doc ID: 10. Inserting test chunk... 
+2026-08-08T11:57:59.927Z - Database insert test successful! Inserted ID: 117 
+2026-08-08T11:58:00.171Z - Database clean up test successful! 
+2026-08-08T11:58:00.171Z - Attempting to trigger a background worker job for this document... 
+2026-08-08T11:58:00.245Z - Background job queued successfully! Job ID: 3 
+2026-08-08T11:59:04.080Z - [Worker Process Error] Document 9 failed: bad XRef entry
+Stack: Error
+    at UnknownErrorExceptionClosure (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:443:37)
+    at Object.<anonymous> (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:446:2)
+    at __w_pdfjs_require__ (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:45:30)
+    at Object.<anonymous> (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:7939:23)
+    at __w_pdfjs_require__ (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:45:30)
+    at E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:88:18
+    at E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:91:10
+    at webpackUniversalModuleDefinition (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:18:20)
+    at Object.<anonymous> (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:25:3)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+2026-08-08T11:59:04.374Z - [Worker Job Failed] Job 2 failed: bad XRef entry
+Stack: Error
+    at UnknownErrorExceptionClosure (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:443:37)
+    at Object.<anonymous> (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:446:2)
+    at __w_pdfjs_require__ (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:45:30)
+    at Object.<anonymous> (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:7939:23)
+    at __w_pdfjs_require__ (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:45:30)
+    at E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:88:18
+    at E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:91:10
+    at webpackUniversalModuleDefinition (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:18:20)
+    at Object.<anonymous> (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:25:3)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+2026-08-08T11:59:13.079Z - [Worker Process Error] Document 10 failed: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-001:batchEmbedContents: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/embed_content_free_tier_requests, limit: 100, model: gemini-embedding-1.0
+Please retry in 45.55672302s. [{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/embed_content_free_tier_requests","quotaId":"EmbedContentRequestsPerMinutePerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-embedding-1.0"},"quotaValue":"100"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"45s"}]
+Stack: Error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-001:batchEmbedContents: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/embed_content_free_tier_requests, limit: 100, model: gemini-embedding-1.0
+Please retry in 45.55672302s. [{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/embed_content_free_tier_requests","quotaId":"EmbedContentRequestsPerMinutePerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-embedding-1.0"},"quotaValue":"100"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"45s"}]
+    at _makeRequestInternal (file:///E:/Recall/server/node_modules/@google/generative-ai/dist/index.mjs:351:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async batchEmbedContents (file:///E:/Recall/server/node_modules/@google/generative-ai/dist/index.mjs:1131:22)
+    at async Object.generateEmbeddingsBatch (file:///E:/Recall/server/src/services/geminiService.js:108:20)
+    at async Worker.processFn (file:///E:/Recall/server/src/queues/workers/embeddingWorker.js:61:28)
+    at async E:\Recall\server\node_modules\bullmq\dist\cjs\classes\worker.js:612:32
+2026-08-08T11:59:13.348Z - [Worker Job Failed] Job 3 failed: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-001:batchEmbedContents: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/embed_content_free_tier_requests, limit: 100, model: gemini-embedding-1.0
+Please retry in 45.55672302s. [{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/embed_content_free_tier_requests","quotaId":"EmbedContentRequestsPerMinutePerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-embedding-1.0"},"quotaValue":"100"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"45s"}]
+Stack: Error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-001:batchEmbedContents: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/embed_content_free_tier_requests, limit: 100, model: gemini-embedding-1.0
+Please retry in 45.55672302s. [{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/embed_content_free_tier_requests","quotaId":"EmbedContentRequestsPerMinutePerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-embedding-1.0"},"quotaValue":"100"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"45s"}]
+    at _makeRequestInternal (file:///E:/Recall/server/node_modules/@google/generative-ai/dist/index.mjs:351:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async batchEmbedContents (file:///E:/Recall/server/node_modules/@google/generative-ai/dist/index.mjs:1131:22)
+    at async Object.generateEmbeddingsBatch (file:///E:/Recall/server/src/services/geminiService.js:108:20)
+    at async Worker.processFn (file:///E:/Recall/server/src/queues/workers/embeddingWorker.js:61:28)
+    at async E:\Recall\server\node_modules\bullmq\dist\cjs\classes\worker.js:612:32
+2026-08-08T11:59:14.650Z - [Worker Process Error] Document 9 failed: bad XRef entry
+Stack: Error
+    at UnknownErrorExceptionClosure (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:443:37)
+    at Object.<anonymous> (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:446:2)
+    at __w_pdfjs_require__ (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:45:30)
+    at Object.<anonymous> (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:7939:23)
+    at __w_pdfjs_require__ (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:45:30)
+    at E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:88:18
+    at E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:91:10
+    at webpackUniversalModuleDefinition (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:18:20)
+    at Object.<anonymous> (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:25:3)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+2026-08-08T11:59:14.934Z - [Worker Job Failed] Job 2 failed: bad XRef entry
+Stack: Error
+    at UnknownErrorExceptionClosure (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:443:37)
+    at Object.<anonymous> (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:446:2)
+    at __w_pdfjs_require__ (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:45:30)
+    at Object.<anonymous> (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:7939:23)
+    at __w_pdfjs_require__ (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:45:30)
+    at E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:88:18
+    at E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:91:10
+    at webpackUniversalModuleDefinition (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:18:20)
+    at Object.<anonymous> (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:25:3)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+2026-08-08T11:59:18.650Z - [Worker Job Failed] Job 3 failed: Document with ID 10 not found in database.
+Stack: Error: Document with ID 10 not found in database.
+    at Worker.processFn (file:///E:/Recall/server/src/queues/workers/embeddingWorker.js:26:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async E:\Recall\server\node_modules\bullmq\dist\cjs\classes\worker.js:612:32
+2026-08-08T11:59:28.943Z - [Worker Job Failed] Job 3 failed: Document with ID 10 not found in database.
+Stack: Error: Document with ID 10 not found in database.
+    at Worker.processFn (file:///E:/Recall/server/src/queues/workers/embeddingWorker.js:26:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async E:\Recall\server\node_modules\bullmq\dist\cjs\classes\worker.js:612:32
+2026-08-08T12:01:36.993Z - [Worker Success] Successfully completed processing document ID: 11
+2026-08-08T12:04:39.179Z - [Worker Process Error] Document 12 failed: Invalid PDF structure
+Stack: Error
+    at InvalidPDFExceptionClosure (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:452:35)
+    at Object.<anonymous> (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:455:2)
+    at __w_pdfjs_require__ (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:45:30)
+    at Object.<anonymous> (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:7939:23)
+    at __w_pdfjs_require__ (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:45:30)
+    at E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:88:18
+    at E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:91:10
+    at webpackUniversalModuleDefinition (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:18:20)
+    at Object.<anonymous> (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:25:3)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+2026-08-08T12:04:39.454Z - [Worker Job Failed] Job 5 failed: Invalid PDF structure
+Stack: Error
+    at InvalidPDFExceptionClosure (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:452:35)
+    at Object.<anonymous> (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:455:2)
+    at __w_pdfjs_require__ (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:45:30)
+    at Object.<anonymous> (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:7939:23)
+    at __w_pdfjs_require__ (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:45:30)
+    at E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:88:18
+    at E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:91:10
+    at webpackUniversalModuleDefinition (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:18:20)
+    at Object.<anonymous> (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:25:3)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+2026-08-08T12:04:44.721Z - [Worker Process Error] Document 12 failed: Invalid PDF structure
+Stack: Error
+    at InvalidPDFExceptionClosure (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:452:35)
+    at Object.<anonymous> (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:455:2)
+    at __w_pdfjs_require__ (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:45:30)
+    at Object.<anonymous> (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:7939:23)
+    at __w_pdfjs_require__ (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:45:30)
+    at E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:88:18
+    at E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:91:10
+    at webpackUniversalModuleDefinition (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:18:20)
+    at Object.<anonymous> (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:25:3)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+2026-08-08T12:04:44.988Z - [Worker Job Failed] Job 5 failed: Invalid PDF structure
+Stack: Error
+    at InvalidPDFExceptionClosure (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:452:35)
+    at Object.<anonymous> (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:455:2)
+    at __w_pdfjs_require__ (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:45:30)
+    at Object.<anonymous> (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:7939:23)
+    at __w_pdfjs_require__ (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:45:30)
+    at E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:88:18
+    at E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:91:10
+    at webpackUniversalModuleDefinition (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:18:20)
+    at Object.<anonymous> (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:25:3)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+2026-08-08T12:04:56.832Z - [Worker Process Error] Document 12 failed: Invalid PDF structure
+Stack: Error
+    at InvalidPDFExceptionClosure (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:452:35)
+    at Object.<anonymous> (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:455:2)
+    at __w_pdfjs_require__ (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:45:30)
+    at Object.<anonymous> (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:7939:23)
+    at __w_pdfjs_require__ (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:45:30)
+    at E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:88:18
+    at E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:91:10
+    at webpackUniversalModuleDefinition (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:18:20)
+    at Object.<anonymous> (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:25:3)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+2026-08-08T12:04:57.103Z - [Worker Job Failed] Job 5 failed: Invalid PDF structure
+Stack: Error
+    at InvalidPDFExceptionClosure (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:452:35)
+    at Object.<anonymous> (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:455:2)
+    at __w_pdfjs_require__ (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:45:30)
+    at Object.<anonymous> (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:7939:23)
+    at __w_pdfjs_require__ (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:45:30)
+    at E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:88:18
+    at E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:91:10
+    at webpackUniversalModuleDefinition (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:18:20)
+    at Object.<anonymous> (E:\Recall\server\node_modules\pdf-parse\lib\pdf.js\v1.10.100\build\pdf.js:25:3)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)

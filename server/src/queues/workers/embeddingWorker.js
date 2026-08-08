@@ -15,7 +15,7 @@ const __dirname = path.dirname(__filename);
 const serverRootDir = path.resolve(__dirname, '../../../');
 
 const worker = new Worker(
-  'embeddingQueue',
+  'embeddingQueue_v2',
   async (job) => {
     const { documentId } = job.data;
     console.log(`[Worker] Started processing document ID: ${documentId}`);
@@ -60,20 +60,16 @@ const worker = new Worker(
         const textsToEmbed = batch.map(chunk => chunk.text);
         const embeddings = await geminiService.generateEmbeddingsBatch(textsToEmbed);
 
-        // Insert chunks with their embeddings into Postgres using Drizzle
-        const insertPromises = batch.map((chunk, index) => {
-          return db.insert(chunks).values({
-            documentId: doc.id,
-            userId: doc.userId,
-            text: chunk.text,
-            embedding: embeddings[index],
-            pageNumber: chunk.pageNumber,
-            chunkIndex: chunk.chunkIndex
-          });
-        });
-
-        // Run insertions in parallel for this batch
-        await Promise.all(insertPromises);
+        // Insert chunks with their embeddings into Postgres using Drizzle batch insert
+        const insertValues = batch.map((chunk, index) => ({
+          documentId: doc.id,
+          userId: doc.userId,
+          text: chunk.text,
+          embedding: embeddings[index],
+          pageNumber: chunk.pageNumber,
+          chunkIndex: chunk.chunkIndex
+        }));
+        await db.insert(chunks).values(insertValues);
       }
 
       // 5. Update document status to ready
@@ -86,9 +82,27 @@ const worker = new Worker(
         .where(eq(documents.id, doc.id));
 
       console.log(`[Worker] Successfully completed processing document ID: ${doc.id}`);
+      try {
+        const fs = await import('fs');
+        const logFile = path.resolve(serverRootDir, 'diagnostic.log');
+        const logText = `${new Date().toISOString()} - [Worker Success] Successfully completed processing document ID: ${doc.id}\n`;
+        fs.appendFileSync(logFile, logText);
+      } catch (logErr) {
+        // ignore
+      }
     } catch (error) {
       console.error(`[Worker] Failed processing document ID ${doc.id}:`, error.message);
       
+      // Log failure detail to diagnostic.log
+      try {
+        const fs = await import('fs');
+        const logFile = path.resolve(serverRootDir, 'diagnostic.log');
+        const logText = `${new Date().toISOString()} - [Worker Process Error] Document ${doc.id} failed: ${error.message}\nStack: ${error.stack}\n`;
+        fs.appendFileSync(logFile, logText);
+      } catch (logErr) {
+        console.error('Failed to write worker error to diagnostic log file:', logErr.message);
+      }
+
       // Update document status to failed
       await db.update(documents)
         .set({
@@ -103,12 +117,28 @@ const worker = new Worker(
   bullMQConnection
 );
 
-worker.on('failed', (job, err) => {
+worker.on('failed', async (job, err) => {
   console.error(`[Worker] Job ${job?.id} failed with error:`, err.message);
+  try {
+    const fs = await import('fs');
+    const logFile = path.resolve(serverRootDir, 'diagnostic.log');
+    const logText = `${new Date().toISOString()} - [Worker Job Failed] Job ${job?.id} failed: ${err.message}\nStack: ${err.stack}\n`;
+    fs.appendFileSync(logFile, logText);
+  } catch (logErr) {
+    // ignore
+  }
 });
 
-worker.on('error', (err) => {
+worker.on('error', async (err) => {
   console.error('[Worker] Global worker error:', err.message);
+  try {
+    const fs = await import('fs');
+    const logFile = path.resolve(serverRootDir, 'diagnostic.log');
+    const logText = `${new Date().toISOString()} - [Worker Global Error]: ${err.message}\nStack: ${err.stack}\n`;
+    fs.appendFileSync(logFile, logText);
+  } catch (logErr) {
+    // ignore
+  }
 });
 
 export default worker;

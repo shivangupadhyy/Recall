@@ -1,7 +1,7 @@
 import { Queue } from 'bullmq';
 import { bullMQConnection } from '../config/redis.js';
 
-const QUEUE_NAME = 'flashcardQueue';
+const QUEUE_NAME = 'flashcardQueue_v2';
 
 // Initialize the BullMQ queue for flashcards
 export const flashcardQueue = new Queue(QUEUE_NAME, bullMQConnection);

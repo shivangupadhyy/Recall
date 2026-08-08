@@ -1,7 +1,7 @@
 import { Queue } from 'bullmq';
 import { bullMQConnection } from '../config/redis.js';
 
-const QUEUE_NAME = 'embeddingQueue';
+const QUEUE_NAME = 'embeddingQueue_v2';
 
 // Initialize the BullMQ queue
 export const embeddingQueue = new Queue(QUEUE_NAME, bullMQConnection);

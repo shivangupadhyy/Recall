@@ -1,7 +1,7 @@
 import { Queue } from 'bullmq';
 import { bullMQConnection } from '../config/redis.js';
 
-const QUEUE_NAME = 'quizQueue';
+const QUEUE_NAME = 'quizQueue_v2';
 
 // Initialize the BullMQ queue for quizzes
 export const quizQueue = new Queue(QUEUE_NAME, bullMQConnection);
