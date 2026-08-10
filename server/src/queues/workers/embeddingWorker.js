@@ -27,17 +27,46 @@ const worker = new Worker(
     }
 
     try {
-      // 1. Resolve local PDF file path
-      const filename = doc.fileUrl.replace('/uploads/', '');
-      const absolutePath = path.join(serverRootDir, 'uploads', filename);
+      // 1. Resolve PDF file path (local or download if remote S3 url)
+      let absolutePath = '';
+      let isTempFile = false;
+
+      if (doc.fileUrl.startsWith('http://') || doc.fileUrl.startsWith('https://')) {
+        console.log(`[Worker] PDF is hosted remotely. Downloading from: ${doc.fileUrl}`);
+        const response = await fetch(doc.fileUrl);
+        if (!response.ok) {
+          throw new Error(`Failed to download remote PDF: ${response.status} ${response.statusText}`);
+        }
+        const arrayBuffer = await response.arrayBuffer();
+        const buffer = Buffer.from(arrayBuffer);
+        
+        // Save to a temporary file in local uploads
+        const tempFilename = `temp-${doc.id}-${Date.now()}.pdf`;
+        absolutePath = path.join(serverRootDir, 'uploads', tempFilename);
+        fs.writeFileSync(absolutePath, buffer);
+        isTempFile = true;
+      } else {
+        const filename = doc.fileUrl.replace('/uploads/', '');
+        absolutePath = path.join(serverRootDir, 'uploads', filename);
+      }
 
       if (!fs.existsSync(absolutePath)) {
-        throw new Error(`PDF file not found on disk at: ${absolutePath}`);
+        throw new Error(`PDF file not found at: ${absolutePath}`);
       }
 
       // 2. Extract text with page markers
-      console.log(`[Worker] Extracting text from PDF: ${filename}`);
+      console.log(`[Worker] Extracting text from PDF: ${absolutePath}`);
       const rawText = await pdfExtractor.extractTextWithPageMarkers(absolutePath);
+
+      // Clean up downloaded temp file if applicable
+      if (isTempFile) {
+        try {
+          fs.unlinkSync(absolutePath);
+          console.log(`[Worker] Cleaned up temp downloaded PDF at: ${absolutePath}`);
+        } catch (err) {
+          console.error('[Worker] Failed to delete temp downloaded PDF:', err.message);
+        }
+      }
 
       // 3. Create text chunks
       console.log(`[Worker] Chunking extracted text...`);
@@ -70,6 +99,12 @@ const worker = new Worker(
           chunkIndex: chunk.chunkIndex
         }));
         await db.insert(chunks).values(insertValues);
+
+        // Introduce a 2-second delay between batch requests to respect Gemini API rate limits (e.g. 100 requests per minute)
+        if (i + BATCH_SIZE < textChunks.length) {
+          console.log(`[Worker] Sleeping for 2000ms to respect rate limits...`);
+          await new Promise((resolve) => setTimeout(resolve, 2000));
+        }
       }
 
       // 5. Update document status to ready

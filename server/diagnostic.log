@@ -457,3 +457,4 @@ Please retry in 16.67181974s. [{"@type":"type.googleapis.com/google.rpc.Help","l
     at async Object.generateEmbeddingsBatch (file:///E:/Recall/server/src/services/geminiService.js:108:20)
     at async Worker.processFn (file:///E:/Recall/server/src/queues/workers/embeddingWorker.js:61:28)
     at async E:\Recall\server\node_modules\bullmq\dist\cjs\classes\worker.js:612:32
+2026-08-10T09:16:11.892Z - [Worker Success] Successfully completed processing document ID: 14
