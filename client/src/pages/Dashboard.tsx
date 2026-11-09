@@ -11,7 +11,7 @@ import { AnalyticsTab } from '../components/dashboard/AnalyticsTab';
 import { 
   GraduationCap, LogOut, UploadCloud, Folder, 
   HelpCircle, Sparkles, BookOpen, Clock, Brain,
-  Flame, Award, Activity, TrendingUp, Lightbulb, ChevronRight, X, RefreshCw
+  Flame, Award, Activity, TrendingUp, Lightbulb, ChevronRight, X, RefreshCw, AlertCircle
 } from 'lucide-react';
 import { motion, AnimatePresence } from '../components/dashboard/framerMotionMock';
 
@@ -93,7 +93,7 @@ export const Dashboard: React.FC = () => {
   // Fetch all endpoints
   const fetchDashboardData = async () => {
     try {
-      const [summaryRes, analyticsRes, socialRes, insightsRes, recentRes] = await Promise.all([
+      const [summaryRes, analyticsRes, socialRes, insightsRes, recentRes] = await Promise.allSettled([
         api.get('/dashboard/summary'),
         api.get('/dashboard/analytics'),
         api.get('/dashboard/social'),
@@ -101,11 +101,11 @@ export const Dashboard: React.FC = () => {
         api.get('/dashboard/activity/recent')
       ]);
 
-      setSummary(summaryRes.data);
-      setAnalytics(analyticsRes.data);
-      setSocial(socialRes.data);
-      setInsights(insightsRes.data.insights || []);
-      setRecentActivities(recentRes.data.activities || []);
+      if (summaryRes.status === 'fulfilled') setSummary(summaryRes.value.data);
+      if (analyticsRes.status === 'fulfilled') setAnalytics(analyticsRes.value.data);
+      if (socialRes.status === 'fulfilled') setSocial(socialRes.value.data);
+      if (insightsRes.status === 'fulfilled') setInsights(insightsRes.value.data?.insights || []);
+      if (recentRes.status === 'fulfilled') setRecentActivities(recentRes.value.data?.activities || []);
     } catch (err) {
       console.error('Failed to fetch comprehensive dashboard metrics:', err);
     } finally {
@@ -332,6 +332,25 @@ export const Dashboard: React.FC = () => {
           <div className="flex flex-col items-center justify-center py-28 space-y-4">
             <RefreshCw className="w-10 h-10 text-brand-500 animate-spin" />
             <p className="text-sm text-slate-400 font-medium tracking-wide">Gathering database stats...</p>
+          </div>
+        )}
+
+        {/* ERROR / RETRY SCREEN */}
+        {!loadingSummary && !summary && (
+          <div className="flex flex-col items-center justify-center py-20 space-y-4 bg-slate-900/30 border border-slate-850 rounded-3xl p-8 text-center max-w-md mx-auto my-8">
+            <div className="bg-brand-500/10 text-brand-400 p-3 rounded-2xl border border-brand-500/15">
+              <AlertCircle className="w-8 h-8" />
+            </div>
+            <h3 className="text-lg font-bold text-white tracking-tight">Syncing Study Stats</h3>
+            <p className="text-xs text-slate-400 leading-relaxed">
+              Could not load study metrics right now. Please refresh or retry.
+            </p>
+            <button
+              onClick={() => { setLoadingSummary(true); fetchDashboardData(); }}
+              className="px-4 py-2 bg-brand-600 hover:bg-brand-500 text-white text-xs font-semibold rounded-xl transition-all shadow-md shadow-brand-500/20"
+            >
+              Retry Connection
+            </button>
           </div>
         )}
 

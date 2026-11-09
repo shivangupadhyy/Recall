@@ -27,19 +27,45 @@ const getOrCreateUserStats = async (userId) => {
 
   if (stats) return stats;
 
-  const [newStats] = await db
-    .insert(userStats)
-    .values({
-      userId,
-      xp: 0,
-      level: 1,
-      streak: 0,
-      longestStreak: 0,
-      studyTime: 0,
-    })
-    .returning();
+  try {
+    const [newStats] = await db
+      .insert(userStats)
+      .values({
+        userId,
+        xp: 0,
+        level: 1,
+        streak: 0,
+        longestStreak: 0,
+        studyTime: 0,
+      })
+      .returning();
 
-  return newStats;
+    if (newStats) return newStats;
+  } catch (err) {
+    // Concurrent request may have already created the record
+    if (!err.message?.includes('user_stats_user_id_unique') && !err.message?.includes('duplicate key')) {
+      console.warn('[Dashboard] Stats insert note:', err.message);
+    }
+  }
+
+  // Fetch the record inserted by the concurrent request
+  const [existingStats] = await db
+    .select()
+    .from(userStats)
+    .where(eq(userStats.userId, userId))
+    .limit(1);
+
+  return existingStats || {
+    userId,
+    xp: 0,
+    level: 1,
+    streak: 0,
+    longestStreak: 0,
+    studyTime: 0,
+    dailyGoalXp: 100,
+    weeklyGoalXp: 500,
+    monthlyGoalXp: 2000
+  };
 };
 
 /**
