@@ -30,6 +30,14 @@ export const bullMQConnection = {
   connection: {
     url: redisUrl,
     maxRetriesPerRequest: null,
+    enableOfflineQueue: false,
+    retryStrategy: (times) => {
+      // Limit reconnect spam if Redis host is not reachable
+      if (times > 3) {
+        return null; // stops reconnecting
+      }
+      return 4000;
+    },
     ...(isSecure ? {
       tls: {
         rejectUnauthorized: false
