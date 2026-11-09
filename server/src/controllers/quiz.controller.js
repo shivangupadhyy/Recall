@@ -58,10 +58,15 @@ export const getQuiz = async (req, res) => {
     }
 
     // 2. If quiz does not exist in DB, check if it's currently processing in BullMQ
-    const jobs = await quizQueue.getJobs(['active', 'waiting', 'delayed']);
-    const isGenerating = jobs.some(
-      (job) => job.data.documentId === docId && job.data.userId === userId
-    );
+    let isGenerating = false;
+    try {
+      const jobs = await quizQueue.getJobs(['active', 'waiting', 'delayed']);
+      isGenerating = jobs.some(
+        (job) => job.data.documentId === docId && job.data.userId === userId
+      );
+    } catch (queueErr) {
+      console.warn('[Quiz API] Redis/Queue check failed:', queueErr.message);
+    }
 
     if (isGenerating) {
       return res.status(200).json({ status: 'generating' });

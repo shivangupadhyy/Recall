@@ -10,11 +10,14 @@ const run = async () => {
     process.exit(1);
   }
 
+  const isCloud = connectionString.includes('sslmode=require') || 
+                  connectionString.includes('neon.tech') || 
+                  connectionString.includes('supabase.co') || 
+                  connectionString.includes('supabase.com');
+
   const client = new Client({
     connectionString,
-    ssl: connectionString.includes('sslmode=require') || connectionString.includes('neon.tech')
-      ? { rejectUnauthorized: false }
-      : false,
+    ssl: isCloud ? { rejectUnauthorized: false } : false,
   });
 
   try {
