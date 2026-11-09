@@ -333,10 +333,34 @@ export const QuizPage: React.FC = () => {
                     key={optIdx}
                     disabled={isAnswerRevealed}
                     onClick={() => handleOptionSelect(optIdx)}
-                    className={`flex justify-between items-center w-full border text-left p-4.5 rounded-2xl text-xs md:text-sm font-medium transition-all ${buttonStyle}`}
+                    className={`flex items-center gap-4 w-full border text-left px-5 py-4 rounded-2xl text-xs md:text-sm font-semibold transition-all duration-200 ${
+                      isAnswerRevealed 
+                        ? 'hover:translate-y-0 opacity-80' 
+                        : 'hover:-translate-y-0.5 hover:border-brand-500/40 hover:shadow-lg hover:shadow-brand-500/5 active:translate-y-0'
+                    } ${buttonStyle}`}
                   >
-                    <span className="select-text">{option}</span>
-                    {iconEl}
+                    {/* Option letter badge (A, B, C, D) */}
+                    <span className={`w-8 h-8 rounded-xl flex items-center justify-center text-xs font-black border transition-all shrink-0 ${
+                      isAnswerRevealed
+                        ? isCorrectAnswer
+                          ? 'bg-emerald-500/20 border-emerald-500/40 text-emerald-400'
+                          : isSelected
+                            ? 'bg-red-500/20 border-red-500/40 text-red-400'
+                            : 'bg-slate-950/40 border-slate-900 text-slate-650'
+                        : isSelected
+                          ? 'bg-brand-500/20 border-brand-500/50 text-brand-300'
+                          : 'bg-slate-950/50 border-slate-800 text-slate-400'
+                    }`}>
+                      {String.fromCharCode(65 + optIdx)}
+                    </span>
+                    
+                    <span className="select-text flex-1 py-0.5 leading-relaxed">{option}</span>
+                    
+                    {iconEl && (
+                      <span className="shrink-0 ml-2">
+                        {iconEl}
+                      </span>
+                    )}
                   </button>
                 );
               })}
