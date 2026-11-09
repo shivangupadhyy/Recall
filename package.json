@@ -3,9 +3,13 @@
   "version": "1.0.0",
   "description": "AI-Powered Study Companion for Indian College Students",
   "main": "index.js",
+  "workspaces": [
+    "client",
+    "server"
+  ],
   "scripts": {
-    "build": "cd client && npm run build",
-    "build:client": "cd client && npm run build",
+    "build": "cd client && npm install && npm run build",
+    "build:client": "cd client && npm install && npm run build",
     "install:server": "cd server && npm install",
     "install:client": "cd client && npm install",
     "install:all": "npm install && npm run install:server && npm run install:client",
