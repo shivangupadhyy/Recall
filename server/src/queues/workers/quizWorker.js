@@ -83,4 +83,8 @@ worker.on('failed', (job, err) => {
   console.error(`[Quiz Worker] Job ${job?.id} failed with error:`, err.message);
 });
 
+worker.on('error', (err) => {
+  console.error('[Quiz Worker] Global worker error:', err.message);
+});
+
 export default worker;

@@ -14,6 +14,9 @@ interface Document {
   fileUrl: string;
   status: 'processing' | 'ready' | 'failed';
   createdAt: string;
+  isShared?: boolean;
+  creatorName?: string;
+  isPublic?: boolean;
 }
 
 export const SubjectView: React.FC = () => {

@@ -6,6 +6,10 @@ const QUEUE_NAME = 'quizQueue_v2';
 // Initialize the BullMQ queue for quizzes
 export const quizQueue = new Queue(QUEUE_NAME, bullMQConnection);
 
+quizQueue.on('error', (err) => {
+  console.error('[Quiz Queue] Error:', err.message);
+});
+
 /**
  * Add a quiz generation job to the queue.
  * @param {number} documentId Database document ID

@@ -6,6 +6,10 @@ const QUEUE_NAME = 'embeddingQueue_v2';
 // Initialize the BullMQ queue
 export const embeddingQueue = new Queue(QUEUE_NAME, bullMQConnection);
 
+embeddingQueue.on('error', (err) => {
+  console.error('[Embedding Queue] Error:', err.message);
+});
+
 /**
  * Add a document processing job to the queue.
  * @param {number} documentId Database document ID

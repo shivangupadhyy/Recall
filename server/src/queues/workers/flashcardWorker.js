@@ -86,4 +86,8 @@ worker.on('failed', (job, err) => {
   console.error(`[Flashcard Worker] Job ${job?.id} failed with error:`, err.message);
 });
 
+worker.on('error', (err) => {
+  console.error('[Flashcard Worker] Global worker error:', err.message);
+});
+
 export default worker;

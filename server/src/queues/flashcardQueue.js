@@ -6,6 +6,10 @@ const QUEUE_NAME = 'flashcardQueue_v2';
 // Initialize the BullMQ queue for flashcards
 export const flashcardQueue = new Queue(QUEUE_NAME, bullMQConnection);
 
+flashcardQueue.on('error', (err) => {
+  console.error('[Flashcard Queue] Error:', err.message);
+});
+
 /**
  * Add a flashcard generation job to the queue.
  * @param {number} documentId Database document ID

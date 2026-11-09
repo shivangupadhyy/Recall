@@ -9,9 +9,9 @@ import { LeaderboardWidget, LeaderboardUser } from '../components/dashboard/Lead
 import { AchievementsWidget, Achievement } from '../components/dashboard/AchievementsWidget';
 import { AnalyticsTab } from '../components/dashboard/AnalyticsTab';
 import { 
-  GraduationCap, LogOut, UploadCloud, Folder, FileText, 
-  HelpCircle, Sparkles, BookOpen, Clock, ArrowRight, Brain,
-  Flame, Award, Activity, TrendingUp, Lightbulb, CheckCircle2, ChevronRight, X, RefreshCw
+  GraduationCap, LogOut, UploadCloud, Folder, 
+  HelpCircle, Sparkles, BookOpen, Clock, Brain,
+  Flame, Award, Activity, TrendingUp, Lightbulb, ChevronRight, X, RefreshCw
 } from 'lucide-react';
 import { motion, AnimatePresence } from '../components/dashboard/framerMotionMock';
 

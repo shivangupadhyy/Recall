@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { useParams, useNavigate, Link } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import api from '../api/api';
 import { 
-  ArrowLeft, Send, Trash2, Bot, Loader2, Sparkles, 
-  BookOpen, CornerDownLeft, HelpCircle, Eye, EyeOff
+  ArrowLeft, Send, Trash2, Bot, Loader2, 
+  BookOpen, CornerDownLeft, Eye, EyeOff
 } from 'lucide-react';
 
 interface SourceChunk {
@@ -71,7 +71,7 @@ export const ChatPage: React.FC = () => {
 
     lines.forEach((line, lineIdx) => {
       const trimmed = line.trim();
-      const listMatch = trimmed.match(/^[\*\-]\s+(.*)$/);
+      const listMatch = trimmed.match(/^[*-]\s+(.*)$/);
 
       if (listMatch) {
         if (!inList) {

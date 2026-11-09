@@ -4,14 +4,14 @@ import React from 'react';
 // Implements motion element stubs, AnimatePresence, and the utility animate function using requestAnimationFrame.
 
 export const motion = {
-  div: React.forwardRef<HTMLDivElement, any>(({ children, className, initial, animate, exit, transition, ...props }, ref) => {
+  div: React.forwardRef<HTMLDivElement, any>(({ children, className, initial: _initial, animate: _animate, exit: _exit, transition: _transition, ...props }, ref) => {
     return (
       <div ref={ref} className={className} {...props}>
         {children}
       </div>
     );
   }),
-  span: React.forwardRef<HTMLSpanElement, any>(({ children, className, initial, animate, exit, transition, ...props }, ref) => {
+  span: React.forwardRef<HTMLSpanElement, any>(({ children, className, initial: _initial, animate: _animate, exit: _exit, transition: _transition, ...props }, ref) => {
     return (
       <span ref={ref} className={className} {...props}>
         {children}
@@ -20,7 +20,7 @@ export const motion = {
   })
 };
 
-export const AnimatePresence: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+export const AnimatePresence: React.FC<{ children: React.ReactNode; [key: string]: any }> = ({ children }) => {
   return <>{children}</>;
 };
 

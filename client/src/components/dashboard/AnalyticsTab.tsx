@@ -2,9 +2,9 @@ import React from 'react';
 import { 
   AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
   RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar,
-  LineChart, Line, BarChart, Bar, Legend, Cell
+  LineChart, Line, BarChart, Bar, Cell
 } from 'recharts';
-import { BookOpen, RefreshCw, BarChart2, Flame, Award } from 'lucide-react';
+import { BookOpen, RefreshCw, BarChart2, Award } from 'lucide-react';
 import { motion } from './framerMotionMock';
 
 interface WeeklyTime {
@@ -129,7 +129,7 @@ export const AnalyticsTab: React.FC<AnalyticsTabProps> = ({ analytics }) => {
           {hasSubjectPerformance ? (
             <div className="flex-1 w-full h-full min-h-0 text-[9px] flex items-center justify-center">
               <ResponsiveContainer width="100%" height="100%">
-                <RadarChart cx="50%" cy="50%" radius="70%" data={analytics.subjectPerformance}>
+                <RadarChart cx="50%" cy="50%" outerRadius="70%" data={analytics.subjectPerformance}>
                   <PolarGrid stroke="#334155/60" />
                   <PolarAngleAxis dataKey="subject" stroke="#94a3b8" />
                   <PolarRadiusAxis angle={30} domain={[0, 100]} stroke="#475569" />
@@ -221,7 +221,7 @@ export const AnalyticsTab: React.FC<AnalyticsTabProps> = ({ analytics }) => {
                 <YAxis stroke="#475569" fontStyle="bold" />
                 <Tooltip content={<CustomTooltip suffix="cards" />} />
                 <Bar dataKey="count" radius={[6, 6, 0, 0]}>
-                  {analytics.retentionDistribution.map((entry, index) => {
+                  {analytics.retentionDistribution.map((_, index) => {
                     // Visual gradient: lighter boxes (Box 5) represent fully mastered cards
                     const colors = [
                       '#4f46e5', // Box 1

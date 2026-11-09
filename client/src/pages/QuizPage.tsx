@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import api from '../api/api';
 import { 
   ArrowLeft, Loader2, Sparkles, Check, X, RefreshCw, 
-  HelpCircle, Trophy, ChevronRight, AlertCircle, Info
+  HelpCircle, Trophy, ChevronRight, AlertCircle, BookOpen
 } from 'lucide-react';
 
 interface Question {

@@ -458,3 +458,69 @@ Please retry in 16.67181974s. [{"@type":"type.googleapis.com/google.rpc.Help","l
     at async Worker.processFn (file:///E:/Recall/server/src/queues/workers/embeddingWorker.js:61:28)
     at async E:\Recall\server\node_modules\bullmq\dist\cjs\classes\worker.js:612:32
 2026-08-10T09:16:11.892Z - [Worker Success] Successfully completed processing document ID: 14
+2026-11-09T18:02:57.968Z - [Worker Global Error]: getaddrinfo ENOTFOUND free-hound-161944.upstash.io
+Stack: Error: getaddrinfo ENOTFOUND free-hound-161944.upstash.io
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:122:26)
+2026-11-09T18:02:57.971Z - [Worker Global Error]: getaddrinfo ENOTFOUND free-hound-161944.upstash.io
+Stack: Error: getaddrinfo ENOTFOUND free-hound-161944.upstash.io
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:122:26)
+2026-11-09T18:02:59.001Z - [Worker Global Error]: getaddrinfo ENOTFOUND free-hound-161944.upstash.io
+Stack: Error: getaddrinfo ENOTFOUND free-hound-161944.upstash.io
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:122:26)
+2026-11-09T18:02:59.002Z - [Worker Global Error]: getaddrinfo ENOTFOUND free-hound-161944.upstash.io
+Stack: Error: getaddrinfo ENOTFOUND free-hound-161944.upstash.io
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:122:26)
+2026-11-09T18:03:00.009Z - [Worker Global Error]: getaddrinfo ENOTFOUND free-hound-161944.upstash.io
+Stack: Error: getaddrinfo ENOTFOUND free-hound-161944.upstash.io
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:122:26)
+2026-11-09T18:03:00.010Z - [Worker Global Error]: getaddrinfo ENOTFOUND free-hound-161944.upstash.io
+Stack: Error: getaddrinfo ENOTFOUND free-hound-161944.upstash.io
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:122:26)
+2026-11-09T18:03:01.023Z - [Worker Global Error]: getaddrinfo ENOTFOUND free-hound-161944.upstash.io
+Stack: Error: getaddrinfo ENOTFOUND free-hound-161944.upstash.io
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:122:26)
+2026-11-09T18:03:01.023Z - [Worker Global Error]: getaddrinfo ENOTFOUND free-hound-161944.upstash.io
+Stack: Error: getaddrinfo ENOTFOUND free-hound-161944.upstash.io
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:122:26)
+2026-11-09T18:03:02.045Z - [Worker Global Error]: getaddrinfo ENOTFOUND free-hound-161944.upstash.io
+Stack: Error: getaddrinfo ENOTFOUND free-hound-161944.upstash.io
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:122:26)
+2026-11-09T18:03:02.056Z - [Worker Global Error]: getaddrinfo ENOTFOUND free-hound-161944.upstash.io
+Stack: Error: getaddrinfo ENOTFOUND free-hound-161944.upstash.io
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:122:26)
+2026-11-09T18:03:03.072Z - [Worker Global Error]: getaddrinfo ENOTFOUND free-hound-161944.upstash.io
+Stack: Error: getaddrinfo ENOTFOUND free-hound-161944.upstash.io
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:122:26)
+2026-11-09T18:03:03.078Z - [Worker Global Error]: getaddrinfo ENOTFOUND free-hound-161944.upstash.io
+Stack: Error: getaddrinfo ENOTFOUND free-hound-161944.upstash.io
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:122:26)
+2026-11-09T18:03:04.083Z - [Worker Global Error]: getaddrinfo ENOTFOUND free-hound-161944.upstash.io
+Stack: Error: getaddrinfo ENOTFOUND free-hound-161944.upstash.io
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:122:26)
+2026-11-09T18:03:04.092Z - [Worker Global Error]: getaddrinfo ENOTFOUND free-hound-161944.upstash.io
+Stack: Error: getaddrinfo ENOTFOUND free-hound-161944.upstash.io
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:122:26)
+2026-11-09T18:03:05.201Z - [Worker Global Error]: getaddrinfo ENOTFOUND free-hound-161944.upstash.io
+Stack: Error: getaddrinfo ENOTFOUND free-hound-161944.upstash.io
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:122:26)
+2026-11-09T18:03:05.210Z - [Worker Global Error]: getaddrinfo ENOTFOUND free-hound-161944.upstash.io
+Stack: Error: getaddrinfo ENOTFOUND free-hound-161944.upstash.io
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:122:26)
+2026-11-09T18:03:08.186Z - [Worker Global Error]: getaddrinfo ENOTFOUND free-hound-161944.upstash.io
+Stack: Error: getaddrinfo ENOTFOUND free-hound-161944.upstash.io
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:122:26)
+2026-11-09T18:03:08.203Z - [Worker Global Error]: getaddrinfo ENOTFOUND free-hound-161944.upstash.io
+Stack: Error: getaddrinfo ENOTFOUND free-hound-161944.upstash.io
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:122:26)
+2026-11-09T18:03:16.291Z - [Worker Global Error]: getaddrinfo ENOTFOUND free-hound-161944.upstash.io
+Stack: Error: getaddrinfo ENOTFOUND free-hound-161944.upstash.io
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:122:26)
+2026-11-09T18:03:16.327Z - [Worker Global Error]: getaddrinfo ENOTFOUND free-hound-161944.upstash.io
+Stack: Error: getaddrinfo ENOTFOUND free-hound-161944.upstash.io
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:122:26)
+2026-11-09T18:03:36.311Z - [Worker Global Error]: getaddrinfo ENOTFOUND free-hound-161944.upstash.io
+Stack: Error: getaddrinfo ENOTFOUND free-hound-161944.upstash.io
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:122:26)
+2026-11-09T18:03:36.337Z - [Worker Global Error]: getaddrinfo ENOTFOUND free-hound-161944.upstash.io
+Stack: Error: getaddrinfo ENOTFOUND free-hound-161944.upstash.io
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:122:26)

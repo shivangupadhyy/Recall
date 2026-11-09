@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, Link, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import api from '../api/api';
 import { Card, FlashcardContainer } from '../components/flashcards/FlashcardContainer';
 import { 
   ArrowLeft, Brain, Sparkles, RefreshCw, AlertCircle, 
-  CheckCircle2, Flame, Inbox, Award, ArrowRight, Play 
+  Flame, Inbox, Award, Play 
 } from 'lucide-react';
 
 export const FlashcardsPage: React.FC = () => {

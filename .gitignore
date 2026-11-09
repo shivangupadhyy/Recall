@@ -1,1 +1,20 @@
-node_modules
+# Dependencies
+node_modules/
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Production build output
+client/dist/
+dist/
+
+# Server uploads and logs
+server/uploads/*
+!server/uploads/.gitkeep
+*.log
+
+# System files
+.DS_Store
+Thumbs.db
